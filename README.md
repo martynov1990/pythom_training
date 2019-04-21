@@ -1,1 +1,1 @@
-# pythom_training
+# Repository fot Pythom Training
