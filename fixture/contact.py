@@ -78,3 +78,21 @@ class ContactHelper:
     def open_create_contact_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Select all'])[1]/following::input[2]").click()
+        wd.switch_to_alert().accept()
+
+    def edit_first_contact(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit editing
+        wd.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::img[2]").click()
+        # submit group update
+        wd.find_element_by_name("update").click()
+        self.app.return_to_home_page()
