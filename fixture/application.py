@@ -27,7 +27,7 @@ class Application:
 
     def return_to_home_page(self):
         wd = self.wd
-        if not (wd.current_url.endswith("addressbook/") and len(wd.find_element_by_link_text("home"))) > 0:
+        if not (wd.current_url.endswith("addressbook/") and len(wd.find_elements_by_xpath("//input[@value='Delete']"))) > 0:
             wd.find_element_by_link_text("home").click()
 
     def destroy(self):
